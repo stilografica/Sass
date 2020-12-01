@@ -1,0 +1,87 @@
+//Letters: IT ACADEMY
+h1 {
+    font-family: $font-family;
+    font-size: $font-size;
+    line-height: $line-height;
+    text-rendering: $text-rendering;
+    color: $color;
+    text-transform: $text-transform;
+    position: $positionAbsolute;
+    transition: all 0.6s $cubic;
+}
+
+/*Big container, father element*/
+.strips {
+    display: flex;
+    overflow: hidden;
+}
+
+/*All containers, from 1 to 5*/
+.strip {
+    /*To center the letters*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*width for each column, with variable because there may be a change of number of columns later*/
+	flex-basis: #{$total/$col}vw;
+    height: #{$total}vh!important;/*Need!important for Safari*/
+    /*To prevent the white layers overlapping when hovering*/
+    overflow: hidden;
+	cursor:pointer;
+
+	/*all colored containers, loop*/
+	@for $i from 1 through $col {
+		&:nth-child(#{$i})  {
+			background-color: map-get($colours, col#{$i});
+			@include animations(container#{$i} 1s $cubic #{$i*0.1}s both);
+
+			/*Entrance animations*/
+			@-webkit-keyframes container#{$i} {
+				/*container i leave from one side of the screen*/
+				0% {@include transform (translate(map-get($translate, container#{$i})));}
+			
+				100% {-webkit-transform: translate(0, 0);/* Safari & Chrome*/
+							  transform: translate(0, 0);}
+			}
+			@keyframes container#{$i} {
+				/*container 1 leave from left*/
+				0% {@include transform (translate(map-get($translate, container#{$i})));}
+				100% {-webkit-transform: translate(0, 0);/* Safari & Chrome*/
+							  transform: translate(0, 0);}
+			}	
+			/*White line between containers*/
+			@if $i!=1 {
+				margin-left: $margin-left;
+			}@else {
+				margin-left: 0;
+			}
+		}
+	}
+	
+	/*white layer*/
+	&::before {
+		content: "";
+		position: relative;
+		top: 0;
+		left: 0;
+		/*white layer size*/
+		width: #{$total*1%};
+		height: #{$total*1%};
+		background: $color;
+		opacity: 0.05;
+		/*transformation of the white layer in resting position*/
+		-webkit-transform-origin: center center;/* Safari & Chrome*/
+				transform-origin: center center;
+		-webkit-transform: skew(30deg) scaleY(1) translate(0, 0);/* Safari & Chrome*/
+				transform: skew(30deg) scaleY(1) translate(0, 0);
+		/*white layer movement*/
+		transition: all 0.6s $cubic;
+	}
+	/*white layer hover effect */
+	&:hover::before {
+		/*white layer grows*/
+		-webkit-transform: skew(0deg) scale(3) ;/* Safari & Chrome*/
+			transform: skew(0deg) scale(3) translate(0, 0);
+		opacity: .1;
+	}
+}

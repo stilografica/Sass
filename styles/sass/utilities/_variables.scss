@@ -1,0 +1,18 @@
+//Variables
+$font-family: "Lato";
+$font-size: 3.5vw;
+$line-height: 1.5em;
+$text-rendering: geometricPrecision;
+$color: #fff;
+$text-transform: uppercase;
+$positionAbsolute: absolute;
+$margin-left: 0.188rem;
+$cubic: cubic-bezier(0.23, 1, 0.32, 1);
+$col: 5;
+$total: 100;
+
+//Colours map
+$colours: ("col1": #244F75, "col2":#60BFBF, "col3": #8C4B7E,"col4": #F8BB44, "col5": #F24B4B);
+
+//Transform position map
+$translate: ("container1": (-#{$total*1%}, 0), "container2": (0, #{$total*1%}), "container3": (0, -#{$total*1%}), "container4": (0, #{$total*1%}), "container5": (#{$total*1%}, 0));
