@@ -35,16 +35,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-h1 {
-  font-family: "Lato";
-  font-size: 3.5vw;
-  line-height: 1.5em;
-  text-rendering: geometricPrecision;
-  color: #fff;
-  text-transform: uppercase;
-  position: absolute;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
-
+/*All containers, from 1 to 5*/
 /*Big container, father element*/
 .strips {
   display: flex;
@@ -63,7 +54,8 @@ h1 {
   /*To prevent the white layers overlapping when hovering*/
   overflow: hidden;
   cursor: pointer;
-  /*all colored containers, loop*/
+  /*All containers, from 1 to 5*/
+  /*Loop to generate all containers*/
   /*white layer*/
   /*white layer hover effect */ }
   .strip:nth-child(1) {
@@ -91,7 +83,6 @@ h1 {
     /* Safari & Chrome*/
     transform: translate(0, 0); } }
 @keyframes container1 {
-  /*container 1 leave from left*/
   0% {
     -webkit-transform: translate(-100%, 0);
     /* Safari & Chrome*/
@@ -127,7 +118,6 @@ h1 {
     /* Safari & Chrome*/
     transform: translate(0, 0); } }
 @keyframes container2 {
-  /*container 1 leave from left*/
   0% {
     -webkit-transform: translate(0, 100%);
     /* Safari & Chrome*/
@@ -163,7 +153,6 @@ h1 {
     /* Safari & Chrome*/
     transform: translate(0, 0); } }
 @keyframes container3 {
-  /*container 1 leave from left*/
   0% {
     -webkit-transform: translate(0, -100%);
     /* Safari & Chrome*/
@@ -199,7 +188,6 @@ h1 {
     /* Safari & Chrome*/
     transform: translate(0, 0); } }
 @keyframes container4 {
-  /*container 1 leave from left*/
   0% {
     -webkit-transform: translate(0, 100%);
     /* Safari & Chrome*/
@@ -235,7 +223,6 @@ h1 {
     /* Safari & Chrome*/
     transform: translate(0, 0); } }
 @keyframes container5 {
-  /*container 1 leave from left*/
   0% {
     -webkit-transform: translate(100%, 0);
     /* Safari & Chrome*/
@@ -267,7 +254,20 @@ h1 {
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
   .strip:hover::before {
     /*white layer grows*/
-    -webkit-transform: skew(0deg) scale(3);
+    -webkit-transform: skew(0deg) scale(3) translate(0, 0);
     /* Safari & Chrome*/
     transform: skew(0deg) scale(3) translate(0, 0);
     opacity: .1; }
+  .strip > h1 {
+    font-family: "Lato";
+    font-size: 3.5vw;
+    text-rendering: geometricPrecision;
+    color: #fff;
+    text-transform: uppercase;
+    position: absolute;
+    /*Font smoth*/
+    -webkit-font-smoothing: antialiased;
+    /* Safari & Chrome*/
+    -moz-font-smoothing: grayscale;
+    /* Firefox */
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); }

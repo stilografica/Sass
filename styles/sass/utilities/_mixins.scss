@@ -1,12 +1,52 @@
+/*All containers, from 1 to 5*/
+@mixin stripes {
+    /*Loop to generate all containers*/
+	@for $i from 1 through $col {
+		&:nth-child(#{$i})  {
+			background-color: map-get($colours, col#{$i});
+			@include animations(container#{$i} 1s $cubic #{$i*0.1}s both);
+
+			/*Entrance animations*/
+			@-webkit-keyframes container#{$i} {
+				/*container i leave from one side of the screen*/
+				0% {@include transform (translate(map-get($translate, container#{$i})));}
+			
+				100% {-webkit-transform: translate(0, 0);/* Safari & Chrome*/
+							  transform: translate(0, 0);}
+			}
+			@keyframes container#{$i} {
+				0% {@include transform (translate(map-get($translate, container#{$i})));}
+				100% {-webkit-transform: $translateZero;/* Safari & Chrome*/
+							  transform: $translateZero;}
+			}	
+			/*White line between containers*/
+			@if $i!=1 {
+				margin-left: $margin-left;
+			}@else {
+				margin-left: 0;
+			}
+		}
+    }
+}
+//Animation browser prefixes
 @mixin animations($propiedad) {
 	-webkit-animation: $propiedad;/* Safari & Chrome*/
 	-moz-animation: $propiedad;/* Firefox */
 	-o-animation: $propiedad;/* Opera */
 	animation: $propiedad;
 }
-
+//Transform browser prefixes
 @mixin transform ($propiedad) {
 	-webkit-transform: $propiedad;/* Safari & Chrome*/
 	-moz-transform: $propiedad;/* Firefox */
 	transform: $propiedad;
+}
+
+//Letters: IT ACADEMY
+@mixin font($family, $size, $rendering, $color, $transform) {
+        font-family: $family;
+        font-size: $size;
+        text-rendering: $rendering;
+        color: $color;
+        text-transform: $transform;
 }
