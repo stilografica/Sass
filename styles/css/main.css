@@ -1,3 +1,4 @@
+/* Partials*/
 /* http://meyerweb.com/eric/tools/scss/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -41,8 +42,9 @@ table {
   display: flex;
   overflow: hidden; }
 
-/*All containers, from 1 to 5*/
+/*All subcontainers*/
 .strip {
+  /*Subcontainers, from 1 to 5*/
   /*To center the letters*/
   display: flex;
   align-items: center;
@@ -50,11 +52,10 @@ table {
   /*width for each column, with variable because there may be a change of number of columns later*/
   flex-basis: 20vw;
   height: 100vh !important;
-  /*Need!important for Safari*/
+  /*"!important" required so that the scroll bar is not displayed in safari*/
   /*To prevent the white layers overlapping when hovering*/
   overflow: hidden;
   cursor: pointer;
-  /*All containers, from 1 to 5*/
   /*Loop to generate all containers*/
   /*white layer*/
   /*white layer hover effect */ }
@@ -71,12 +72,10 @@ table {
     /*White line between containers*/
     margin-left: 0; }
 @-webkit-keyframes container1 {
-  /*container i leave from one side of the screen*/
+  /*Each container leave from one side of the screen*/
   0% {
     -webkit-transform: translate(-100%, 0);
     /* Safari & Chrome*/
-    -moz-transform: translate(-100%, 0);
-    /* Firefox */
     transform: translate(-100%, 0); }
   100% {
     -webkit-transform: translate(0, 0);
@@ -86,8 +85,6 @@ table {
   0% {
     -webkit-transform: translate(-100%, 0);
     /* Safari & Chrome*/
-    -moz-transform: translate(-100%, 0);
-    /* Firefox */
     transform: translate(-100%, 0); }
   100% {
     -webkit-transform: translate(0, 0);
@@ -106,12 +103,10 @@ table {
     /*White line between containers*/
     margin-left: 0.188rem; }
 @-webkit-keyframes container2 {
-  /*container i leave from one side of the screen*/
+  /*Each container leave from one side of the screen*/
   0% {
     -webkit-transform: translate(0, 100%);
     /* Safari & Chrome*/
-    -moz-transform: translate(0, 100%);
-    /* Firefox */
     transform: translate(0, 100%); }
   100% {
     -webkit-transform: translate(0, 0);
@@ -121,8 +116,6 @@ table {
   0% {
     -webkit-transform: translate(0, 100%);
     /* Safari & Chrome*/
-    -moz-transform: translate(0, 100%);
-    /* Firefox */
     transform: translate(0, 100%); }
   100% {
     -webkit-transform: translate(0, 0);
@@ -141,12 +134,10 @@ table {
     /*White line between containers*/
     margin-left: 0.188rem; }
 @-webkit-keyframes container3 {
-  /*container i leave from one side of the screen*/
+  /*Each container leave from one side of the screen*/
   0% {
     -webkit-transform: translate(0, -100%);
     /* Safari & Chrome*/
-    -moz-transform: translate(0, -100%);
-    /* Firefox */
     transform: translate(0, -100%); }
   100% {
     -webkit-transform: translate(0, 0);
@@ -156,8 +147,6 @@ table {
   0% {
     -webkit-transform: translate(0, -100%);
     /* Safari & Chrome*/
-    -moz-transform: translate(0, -100%);
-    /* Firefox */
     transform: translate(0, -100%); }
   100% {
     -webkit-transform: translate(0, 0);
@@ -176,12 +165,10 @@ table {
     /*White line between containers*/
     margin-left: 0.188rem; }
 @-webkit-keyframes container4 {
-  /*container i leave from one side of the screen*/
+  /*Each container leave from one side of the screen*/
   0% {
     -webkit-transform: translate(0, 100%);
     /* Safari & Chrome*/
-    -moz-transform: translate(0, 100%);
-    /* Firefox */
     transform: translate(0, 100%); }
   100% {
     -webkit-transform: translate(0, 0);
@@ -191,8 +178,6 @@ table {
   0% {
     -webkit-transform: translate(0, 100%);
     /* Safari & Chrome*/
-    -moz-transform: translate(0, 100%);
-    /* Firefox */
     transform: translate(0, 100%); }
   100% {
     -webkit-transform: translate(0, 0);
@@ -211,12 +196,10 @@ table {
     /*White line between containers*/
     margin-left: 0.188rem; }
 @-webkit-keyframes container5 {
-  /*container i leave from one side of the screen*/
+  /*Each container leave from one side of the screen*/
   0% {
     -webkit-transform: translate(100%, 0);
     /* Safari & Chrome*/
-    -moz-transform: translate(100%, 0);
-    /* Firefox */
     transform: translate(100%, 0); }
   100% {
     -webkit-transform: translate(0, 0);
@@ -226,8 +209,6 @@ table {
   0% {
     -webkit-transform: translate(100%, 0);
     /* Safari & Chrome*/
-    -moz-transform: translate(100%, 0);
-    /* Firefox */
     transform: translate(100%, 0); }
   100% {
     -webkit-transform: translate(0, 0);
@@ -244,9 +225,6 @@ table {
     background: #fff;
     opacity: 0.05;
     /*transformation of the white layer in resting position*/
-    -webkit-transform-origin: center center;
-    /* Safari & Chrome*/
-    transform-origin: center center;
     -webkit-transform: skew(30deg) scaleY(1) translate(0, 0);
     /* Safari & Chrome*/
     transform: skew(30deg) scaleY(1) translate(0, 0);
@@ -261,8 +239,8 @@ table {
   .strip > h1 {
     font-family: "Lato";
     font-size: 3.5vw;
-    text-rendering: geometricPrecision;
     color: #fff;
+    text-rendering: geometricPrecision;
     text-transform: uppercase;
     position: absolute;
     /*Font smoth*/

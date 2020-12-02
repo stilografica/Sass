@@ -1,17 +1,10 @@
-//Variables
-$color: #fff;
-$positionAbsolute: absolute;
-$margin-left: 0.188rem;
+//Global Variables
+$white: #fff;
 $cubic: cubic-bezier(0.23, 1, 0.32, 1);
-$col: 5;
-$total: 100;
 $translateZero: translate(0, 0);
 
 //Colours map
 $colours: ("col1": #244F75, "col2":#60BFBF, "col3": #8C4B7E,"col4": #F8BB44, "col5": #F24B4B);
 
 //Transform position map
-$translate: ("container1": (-#{$total*1%}, 0), "container2": (0, #{$total*1%}), "container3": (0, -#{$total*1%}), "container4": (0, #{$total*1%}), "container5": (#{$total*1%}, 0));
-
-//Letters style
-$font-style: "Lato", 3.5vw, geometricPrecision, $color, uppercase;
+$animation: ("container1": (-100%, 0), "container2": (0, 100%), "container3": (0, -100%), "container4": (0, 100%), "container5": (100%, 0));

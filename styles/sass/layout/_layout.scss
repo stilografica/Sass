@@ -1,27 +1,13 @@
-//Letters: IT ACADEMY
-
 /*Big container, father element*/
 .strips {
     display: flex;
     overflow: hidden;
 }
 
-/*All containers, from 1 to 5*/
+/*All subcontainers*/
 .strip {
-    /*To center the letters*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /*width for each column, with variable because there may be a change of number of columns later*/
-	flex-basis: #{$total/$col}vw;
-    height: #{$total}vh!important;/*Need!important for Safari*/
-    /*To prevent the white layers overlapping when hovering*/
-    overflow: hidden;
-	cursor:pointer;
-	
-	/*All containers, from 1 to 5*/
+	/*Subcontainers, from 1 to 5*/
 	@include stripes;
-
 	/*white layer*/
 	&::before {
 		content: "";
@@ -29,30 +15,24 @@
 		top: 0;
 		left: 0;
 		/*white layer size*/
-		width: #{$total*1%};
-		height: #{$total*1%};
-		background: $color;
+		width: 100%;
+		height: 100%;
+		background: $white;
 		opacity: 0.05;
 		/*transformation of the white layer in resting position*/
-		-webkit-transform-origin: center center;/* Safari & Chrome*/
-				transform-origin: center center;
-		-webkit-transform: skew(30deg) scaleY(1) $translateZero;/* Safari & Chrome*/
-				transform: skew(30deg) scaleY(1) $translateZero;
+		@include transform (skew(30deg) scaleY(1) $translateZero);
 		/*white layer movement*/
 		transition: all 0.6s $cubic;
 	}
-
 	/*white layer hover effect */
 	&:hover::before {
 		/*white layer grows*/
-		-webkit-transform: skew(0deg) scale(3) $translateZero;/* Safari & Chrome*/
-			transform: skew(0deg) scale(3) $translateZero;
+		@include transform (skew(0deg) scale(3) $translateZero);
 		opacity: .1;
 	}
-
 	//Letters: IT ACADEMY
 	&>h1{
-	@include font($font-style...);	
+	@include font("Lato", 3.5vw, geometricPrecision, uppercase);
 	position: absolute;
     /*Font smoth*/
     -webkit-font-smoothing: antialiased; /* Safari & Chrome*/
